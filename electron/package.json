@@ -10,7 +10,8 @@
     "env-prod": "cp env/env-prod.json env/env.json",
     "start": "npm run env-dev && electron electron.js",
     "build": "npm run env-prod && build --win --linux --x64 --ia32",
-    "build-linux": "npm run env-prod && build --linux --x64"
+    "build-linux": "npm run env-prod && build --linux --x64",
+    "build-appveyor": "npm run env-prod && yarn compile && build"
   },
   "author": {
     "name": "Makina Corpus",
