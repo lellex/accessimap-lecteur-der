@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.html",
   "dependencies": {
+    "cylon": "^1.3.0",
+    "cylon-speech": "^0.10.0",
     "der-reader": "../modules/der-reader",
-    "node-espeak": "^0.2.1",
     "tts.webapi": "../modules/tts.webapi"
   },
   "devDependencies": {},
