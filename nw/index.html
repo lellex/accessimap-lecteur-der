@@ -2,26 +2,57 @@
 <html>
   <head>
     <title>Hello World!</title>
-    <link rel="stylesheet" href="node_modules/der-reader/css/styles.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node.js <script>document.write(process.version)</script>.
     <div id="der-reader"></div>
-    <script type="text/javascript" src="node_modules/tts.webapi/tts.webapi.js"></script>
+    <!-- PROD -->
     <script type="text/javascript" src="node_modules/der-reader/der-reader.js"></script>
+
+    <!-- DEV -->
+    <!--<script type="text/javascript" src="http://localhost:8080/index.js"></script>-->
+
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.body.innerHTML = window.DerReader;
-            window.DerReader.init({
-                container: 'der-reader',
-                derFile: null,
-                tts: window.webspeechapi,
-                defaultMode: 0,
-                format: 'A5',
-                exit: exit
-            });
-        });
-    </script>
+
+    var ESpeak = require('node-espeak');
+    ESpeak.initialize();
+    ESpeak.onVoice(function(wav, samples, samplerate) {
+        // TODO: Do something useful 
+    });
+    ESpeak.speak("Hello world!");
+
+    console.log(window)
+    window.DerReader.init({
+      container: 'der-reader',
+      derFile: null,
+      tts: webspeechapi,
+      defaultMode: 0,
+      format: 'A4',
+      exit: function() {}
+    });
+    // Create an empty context menu
+    var menu = new nw.Menu();
+
+    // Add some items with label
+    menu.append(new nw.MenuItem({
+      label: 'Item A',
+      click: function(){
+        alert('You have clicked at "Item A"');
+      }
+    }));
+    menu.append(new nw.MenuItem({ label: 'Item B' }));
+    menu.append(new nw.MenuItem({ type: 'separator' }));
+    menu.append(new nw.MenuItem({ label: 'Item C' }));
+
+    // Hooks the "contextmenu" event
+    document.body.addEventListener('contextmenu', function(ev) {
+      // Prevent showing default context menu
+      ev.preventDefault();
+      // Popup the native context menu at place you click
+      menu.popup(ev.x, ev.y);
+
+      return false;
+    }, false);
+
+    </script>  
   </body>
 </html>
