@@ -1,17 +1,12 @@
 'use strict';
 
-var webspeechapi, vibrateWebApi, DerReader;
-
-webspeechapi = require('./../../tts.webapi/tts.webapi.js');
-vibrateWebApi = require('./../../vibrate.webapi/vibrate.webapi.js');
-DerReader = require('der-reader');
-
-DerReader.init({
+window.DerReader.init({
   container: 'der-reader',
   derFile: null,
-  tts: webspeechapi,
-  vibrate: vibrateWebApi,
+  tts: window.webspeechapi,
   defaultMode: 0,
-  format: 'A4',
-  exit: function() {}
+  format: 'A5',
+  exit: exit
 });
+
+document.body.style.background = "red";

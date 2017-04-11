@@ -2,11 +2,26 @@
 <html>
   <head>
     <title>Hello World!</title>
+    <link rel="stylesheet" href="node_modules/der-reader/css/styles.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
     <h1>Hello World!</h1>
     We are using node.js <script>document.write(process.version)</script>.
     <div id="der-reader"></div>
-    <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript" src="node_modules/tts.webapi/tts.webapi.js"></script>
+    <script type="text/javascript" src="node_modules/der-reader/der-reader.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.innerHTML = window.DerReader;
+            window.DerReader.init({
+                container: 'der-reader',
+                derFile: null,
+                tts: window.webspeechapi,
+                defaultMode: 0,
+                format: 'A5',
+                exit: exit
+            });
+        });
+    </script>
   </body>
 </html>

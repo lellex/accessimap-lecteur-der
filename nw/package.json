@@ -2,7 +2,7 @@
   "name": "accessimap-lecteur-der",
   "version": "0.0.27",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "dependencies": {
     "der-reader": "^0.0.27",
     "nwjs-builder-phoenix": "^1.6.0",
@@ -13,7 +13,8 @@
     "nw": "^0.21.5"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/nw ."
   },
   "author": "",
   "license": "ISC"
