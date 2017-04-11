@@ -22,7 +22,7 @@ build_script:
   - 'npm run build'
   - 'cd ../../electron'
   - 'npm install'
-  - 'npm run build'
+  - 'npm run env-prod && build --win'
   - 'ls $TRAVIS_BUILD_DIR/electron/dist/accessimap*'
 
 test: off
