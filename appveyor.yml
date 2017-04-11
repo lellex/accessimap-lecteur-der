@@ -17,6 +17,12 @@ install:
   - yarn add electron-builder@next --dev # force install next version to test electron-builder
 
 build_script:
-  - yarn run dist
+  - 'cd modules/der-reader'
+  - 'npm install'
+  - 'npm run build'
+  - 'cd ../../electron'
+  - 'npm install'
+  - 'npm run build'
+  - 'ls $TRAVIS_BUILD_DIR/electron/dist/accessimap*'
 
 test: off
