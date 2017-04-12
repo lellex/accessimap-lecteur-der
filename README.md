@@ -105,6 +105,21 @@ npm install der-reader # mettre à jour le module
 npm run build
 ```
 
+### nw
+
+[NW.js](https://nwjs.io/) (Node-Webkit) est un wrapper d'application au même titre qu'electron. Il est utilisé ici pour se comparer à Electron et vérifier lequel serait le plus performant en fonction des besoin du projet.
+Pour développer avec NW, nous avons besoin d'installer une version de NW. Je vous recommande d'installer la dernière version (stable) sdk via [nwjs](https://www.npmjs.com/package/nwjs).
+
+```bash
+cd nw
+npm i -g nwjs
+nw install 0.21.5-sdk  ## ou dernière version stable dispo
+npm i
+npm start
+```
+
+
+
 
 ### cordova
 
