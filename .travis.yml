@@ -27,15 +27,11 @@ before_install:
 script:
   - 'cd modules/der-reader'
   - 'npm install'
-  - 'rm -rf dist'
   - 'npm run build'
-  - 'cd dist'
-  - 'git status'
-  - 'git init'
-  - 'git add .'
-  - 'git commit -m "Deploy to Github Pages"'
-  - 'git status'
-  - 'git push --force --quiet "https://${GITHUB_API_TOKEN}@$github.com/${GITHUB_REPO}.git" master:gh-pages > /dev/null 2>&1'
+  - 'cd ../..'
+
+after_success:
+  - ./deploy-to-gh-pages.sh
 
 cache:
   directories:
