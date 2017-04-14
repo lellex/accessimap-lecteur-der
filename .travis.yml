@@ -27,10 +27,9 @@ before_install:
 script:
   - 'cd modules/der-reader'
   - 'npm install'
+  - 'rm -rf dist'
   - 'npm run build'
-  - 'cd ../..'
-  - 'cd modules/der-reader/dist'
-  - 'ls'
+  - 'cd dist'
   - 'git status'
   - 'git init'
   - 'git add .'
